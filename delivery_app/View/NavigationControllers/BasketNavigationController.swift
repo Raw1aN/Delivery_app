@@ -11,6 +11,19 @@ class BasketNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        customNavBar()
+        navigationBar.shadowImage = UIImage()
+        navigationBar.backgroundColor = .white
+        navigationBar.barTintColor = .white
     }
 
+}
+
+
+extension BasketNavigationController{
+    
+    func customNavBar(){
+        navigationBar.tintColor = .black
+    }
+    
 }

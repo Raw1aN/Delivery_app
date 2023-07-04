@@ -8,6 +8,7 @@
 import UIKit
 
 class FullDishView: UIView {
+    
 
     func configure(){
         
@@ -61,6 +62,7 @@ class FullDishView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Рыба с овощами и рисом"
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        label.textColor = .black
         return label
     }()
     
@@ -69,6 +71,7 @@ class FullDishView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "799 ₽ "
         label.font = UIFont.systemFont(ofSize: 14, weight: .light)
+        label.textColor = .black
         return label
     }()
     
@@ -87,6 +90,7 @@ class FullDishView: UIView {
         label.text = "Рыба маринованная со специями, лимонным соком, соевым соусом и запечeнная в духовке с лучком, томатами и картошечкой под золотистой майонезно-сырной шубкой"
         label.font = UIFont.systemFont(ofSize: 14, weight: .light)
         label.numberOfLines = 0
+        label.textColor = .black
         return label
     }()
     
@@ -162,4 +166,8 @@ extension FullDishView{
         customView.bottomAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 16).isActive = true
     }
     
+}
+
+protocol FullDishViewDeleagate: AnyObject {
+    func getDataToCategoryViewController(_ view: FullDishView)
 }

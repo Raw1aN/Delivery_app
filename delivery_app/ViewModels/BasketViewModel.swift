@@ -1,37 +1,21 @@
 //
-//  HomeViewModel.swift
+//  BasketViewModel.swift
 //  delivery_app
 //
-//  Created by Алексей Щукин on 01.07.2023.
+//  Created by Алексей Щукин on 03.07.2023.
 //
 
 import Foundation
 import CoreLocation
 
-class HomeViewModel {
+class BasketViewModel{
     
-    private let apiService = ApiService()
     private let dateService = DateService()
     private let locationService = LocationService()
     
-    var categories = Categories(сategories: [])
+    var dishes = [BasketDishes]()
+    
     var location = String()
-    
-    
-    func getCategories(complition: @escaping () -> Void){
-        
-        apiService.getCategories { result in
-            switch result {
-            case .succes(let succes):
-                self.categories = succes
-                complition()
-            case .failure(error: let error):
-                print(error)
-                complition()
-            }
-        }
-        
-    }
     
     func getDate() -> String{
         return dateService.getDate()
@@ -59,6 +43,13 @@ class HomeViewModel {
         }
         
         
+    }
+    
+    func getDishes(complition: @escaping () -> Void){
+        
+        // time changes
+        dishes = Basket.sharedInstance.dishes
+        complition()
     }
     
 }

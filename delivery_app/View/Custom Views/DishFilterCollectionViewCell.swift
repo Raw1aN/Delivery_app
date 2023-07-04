@@ -14,6 +14,7 @@ class DishFilterCollectionViewCell: UICollectionViewCell {
         label.text = "Все меню"
         label.font = UIFont.systemFont(ofSize: 14, weight: .light)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .black
         return label
     }()
     
@@ -28,7 +29,7 @@ class DishFilterCollectionViewCell: UICollectionViewCell {
     
     let customView: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = 11
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(named: "dishBackground")
         return view

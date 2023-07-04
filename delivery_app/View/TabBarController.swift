@@ -20,8 +20,9 @@ class TabBarController: UITabBarController {
 extension TabBarController{
     
     private func tabBarConfiguration(){
-        viewControllers = [generateVC(viewController: HomeNavigationController(rootViewController: HomeViewController()), title: "Главная", image: UIImage(named: "Main")),generateVC(viewController: SearchNavigationController(), title: "Поиск", image: UIImage(named: "Search")),generateVC(viewController: BasketNavigationController(), title: "Корзина", image: UIImage(named: "Basket")),generateVC(viewController: AccountNavigationController(), title: "Аккаунт", image: UIImage(named: "Account"))]
+        viewControllers = [generateVC(viewController: HomeNavigationController(rootViewController: HomeViewController()), title: "Главная", image: UIImage(named: "Main")),generateVC(viewController: SearchNavigationController(rootViewController: SearchViewController()), title: "Поиск", image: UIImage(named: "Search")),generateVC(viewController: BasketNavigationController(rootViewController: BasketViewController()), title: "Корзина", image: UIImage(named: "Basket")),generateVC(viewController: AccountNavigationController(rootViewController: AccountViewController()), title: "Аккаунт", image: UIImage(named: "Account"))]
         tabBar.barTintColor = .white
+        tabBar.tintColor = UIColor(named: "blue")
     }
     
     private func generateVC(viewController: UIViewController, title: String, image: UIImage?) -> UIViewController{

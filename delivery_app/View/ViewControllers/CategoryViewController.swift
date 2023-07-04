@@ -22,6 +22,12 @@ class CategoryViewController: UIViewController {
         getCategoryCollectionViewCellData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        let indexPathForFirstRow = NSIndexPath(item: 0, section: 0)
+        filterCollectionView.selectItem(at: indexPathForFirstRow as IndexPath, animated: true, scrollPosition: .bottom)
+        
+    }
+    
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -31,6 +37,7 @@ class CategoryViewController: UIViewController {
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         cv.showsVerticalScrollIndicator = false
+        cv.backgroundColor = .white
         return cv
     }()
     
@@ -43,6 +50,7 @@ class CategoryViewController: UIViewController {
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.register(DishFilterCollectionViewCell.self, forCellWithReuseIdentifier: "filterCell")
         cv.showsHorizontalScrollIndicator = false
+        cv.backgroundColor = .white
         return cv
     }()
 
@@ -106,7 +114,7 @@ extension CategoryViewController{
     
 }
 
-extension CategoryViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
+extension CategoryViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == self.collectionView{
@@ -125,7 +133,7 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.collectionView{
-            return viewModel.dishes.dishes.count
+            return viewModel.dishesFiltered.dishes.count
         }
         else{
             return viewModel.filters.count
@@ -135,14 +143,16 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.collectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CategoryCollectionViewCell
-            cell.custom(url: viewModel.dishes.dishes[indexPath.item].imageURL, title: viewModel.dishes.dishes[indexPath.item].name)
+            cell.dishView.image.image = nil
+            cell.custom(url: viewModel.dishesFiltered.dishes[indexPath.item].imageURL, title: viewModel.dishesFiltered.dishes[indexPath.item].name)
             return cell
         }
         else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCell", for: indexPath) as! DishFilterCollectionViewCell
             cell.label.text = viewModel.filters[indexPath.item]
             if cell.isSelected{
-                cell.backgroundColor = UIColor(named: "blue")
+                cell.customView.backgroundColor = UIColor(named: "blue")
+                cell.label.textColor = .white
             }
             cell.tag = indexPath.row
             return cell
@@ -151,19 +161,32 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.collectionView{
-            fullDishViewController = FullDishViewController(name: viewModel.dishes.dishes[indexPath.item].name, price: viewModel.dishes.dishes[indexPath.item].price, weight: viewModel.dishes.dishes[indexPath.item].weight, description: viewModel.dishes.dishes[indexPath.item].description,url: viewModel.dishes.dishes[indexPath.item].imageURL)
+            fullDishViewController = FullDishViewController(name: viewModel.dishesFiltered.dishes[indexPath.item].name, price: viewModel.dishesFiltered.dishes[indexPath.item].price, weight: viewModel.dishesFiltered.dishes[indexPath.item].weight, description: viewModel.dishesFiltered.dishes[indexPath.item].description,url: viewModel.dishesFiltered.dishes[indexPath.item].imageURL)
             self.present(fullDishViewController, animated: true, completion: nil)
+        }
+        else{
+            let cell = collectionView.cellForItem(at: indexPath) as! DishFilterCollectionViewCell
+            cell.isSelected = true
+            cell.customView.backgroundColor = UIColor(named: "blue")
+            cell.label.textColor = .white
+            viewModel.filterDishes(filter: indexPath.row) {
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        
+        if collectionView == self.filterCollectionView{
+            guard let cell = collectionView.cellForItem(at: indexPath) as? DishFilterCollectionViewCell else { return }
+            cell.isSelected = false
+            cell.customView.backgroundColor = UIColor(named: "dishBackground")
+            cell.label.textColor = .black
+        }
+        
+    }
     
    
 }
-
-//extension CategoryViewController: UICollectionViewDelegate{
-//
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//
-//    }
-//
-//}

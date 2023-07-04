@@ -36,6 +36,7 @@ class LocationView: UIView {
         let label = UILabel()
         label.text = "Неизвестный город"
         label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        label.textColor = .black
         return label
     }()
     

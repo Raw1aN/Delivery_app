@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B3103922A532DD30019231F /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3103912A532DD30019231F /* BasketViewController.swift */; };
+		1B3103942A532E800019231F /* BasketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3103932A532E800019231F /* BasketViewModel.swift */; };
+		1B3103962A532F0F0019231F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3103952A532F0F0019231F /* SearchViewController.swift */; };
+		1B3103982A53302D0019231F /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3103972A53302D0019231F /* AccountViewController.swift */; };
+		1B31039A2A5335750019231F /* BasketCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3103992A5335750019231F /* BasketCollectionViewCell.swift */; };
+		1B31039E2A539F680019231F /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B31039D2A539F680019231F /* Basket.swift */; };
+		1B3103A02A53A1130019231F /* BasketDishes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B31039F2A53A1130019231F /* BasketDishes.swift */; };
 		1B757C3E2A5231AE008663B7 /* DishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B757C3D2A5231AE008663B7 /* DishView.swift */; };
 		1B757C422A523D6B008663B7 /* FullDishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B757C412A523D6B008663B7 /* FullDishView.swift */; };
 		1B757C442A524527008663B7 /* FullDishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B757C432A524527008663B7 /* FullDishViewController.swift */; };
@@ -41,6 +48,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B3103912A532DD30019231F /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
+		1B3103932A532E800019231F /* BasketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewModel.swift; sourceTree = "<group>"; };
+		1B3103952A532F0F0019231F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		1B3103972A53302D0019231F /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		1B3103992A5335750019231F /* BasketCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCollectionViewCell.swift; sourceTree = "<group>"; };
+		1B31039D2A539F680019231F /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
+		1B31039F2A53A1130019231F /* BasketDishes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketDishes.swift; sourceTree = "<group>"; };
 		1B757C3D2A5231AE008663B7 /* DishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishView.swift; sourceTree = "<group>"; };
 		1B757C412A523D6B008663B7 /* FullDishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDishView.swift; sourceTree = "<group>"; };
 		1B757C432A524527008663B7 /* FullDishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDishViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +167,9 @@
 				1BEF1E282A4F01A200B4E03F /* HomeViewController.swift */,
 				1BEF1E492A51C7CB00B4E03F /* CategoryViewController.swift */,
 				1B757C432A524527008663B7 /* FullDishViewController.swift */,
+				1B3103912A532DD30019231F /* BasketViewController.swift */,
+				1B3103952A532F0F0019231F /* SearchViewController.swift */,
+				1B3103972A53302D0019231F /* AccountViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -163,6 +180,8 @@
 				1BEF1E2F2A5082E300B4E03F /* Categories.swift */,
 				1BEF1E3E2A50D66800B4E03F /* HomeCollectionViewData.swift */,
 				1BEF1E4D2A5224BC00B4E03F /* Dishes.swift */,
+				1B31039D2A539F680019231F /* Basket.swift */,
+				1B31039F2A53A1130019231F /* BasketDishes.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -183,6 +202,7 @@
 			children = (
 				1BEF1E362A50899C00B4E03F /* HomeViewModel.swift */,
 				1BEF1E4F2A52259000B4E03F /* CategoryViewModel.swift */,
+				1B3103932A532E800019231F /* BasketViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -194,6 +214,7 @@
 				1BEF1E4B2A51D7B700B4E03F /* BackButtonView.swift */,
 				1BEF1E512A52272200B4E03F /* CategoryCollectionViewCell.swift */,
 				1B757C452A525B73008663B7 /* DishFilterCollectionViewCell.swift */,
+				1B3103992A5335750019231F /* BasketCollectionViewCell.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -276,20 +297,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B3103922A532DD30019231F /* BasketViewController.swift in Sources */,
 				1BEF1E1D2A4DF70B00B4E03F /* SearchNavigationController.swift in Sources */,
+				1B31039A2A5335750019231F /* BasketCollectionViewCell.swift in Sources */,
 				1BEF1E522A52272200B4E03F /* CategoryCollectionViewCell.swift in Sources */,
 				1B757C462A525B73008663B7 /* DishFilterCollectionViewCell.swift in Sources */,
 				1BEF1E182A4DF66A00B4E03F /* TabBarController.swift in Sources */,
 				1BEF1E3D2A50D4C400B4E03F /* UIImageViewExtensions.swift in Sources */,
 				1BEF1E2D2A4F7B7000B4E03F /* NavigationBarView.swift in Sources */,
 				1BEF1E502A52259000B4E03F /* CategoryViewModel.swift in Sources */,
+				1B31039E2A539F680019231F /* Basket.swift in Sources */,
 				1BEF1E212A4DF73A00B4E03F /* BasketNavigationController.swift in Sources */,
 				1BEF1E1F2A4DF71E00B4E03F /* AccountNavigationController.swift in Sources */,
+				1B3103962A532F0F0019231F /* SearchViewController.swift in Sources */,
 				1BEF1E432A50EB0900B4E03F /* LocationService.swift in Sources */,
+				1B3103942A532E800019231F /* BasketViewModel.swift in Sources */,
 				1BEF1E3A2A50D40800B4E03F /* HomeCollectionViewCell.swift in Sources */,
 				1BEF1E302A5082E300B4E03F /* Categories.swift in Sources */,
 				1B757C422A523D6B008663B7 /* FullDishView.swift in Sources */,
 				1BEF1E042A4DF4EC00B4E03F /* AppDelegate.swift in Sources */,
+				1B3103A02A53A1130019231F /* BasketDishes.swift in Sources */,
 				1BEF1E412A50E4B100B4E03F /* DateService.swift in Sources */,
 				1BEF1E482A510F3400B4E03F /* DeviceLocationService.swift in Sources */,
 				1BEF1E4E2A5224BC00B4E03F /* Dishes.swift in Sources */,
@@ -305,6 +332,7 @@
 				1BEF1E4C2A51D7B700B4E03F /* BackButtonView.swift in Sources */,
 				1BEF1E232A4EF44100B4E03F /* AccountCirclImage.swift in Sources */,
 				1BEF1E3F2A50D66800B4E03F /* HomeCollectionViewData.swift in Sources */,
+				1B3103982A53302D0019231F /* AccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

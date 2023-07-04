@@ -30,6 +30,7 @@ class HomeViewController: UIViewController{
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         cv.showsVerticalScrollIndicator = false
+        cv.backgroundColor = .white
         return cv
     }()
     
