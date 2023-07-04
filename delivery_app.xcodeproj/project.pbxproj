@@ -101,6 +101,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1BD65B992A53C94500CE1AFF /* CollectionView Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1BEF1E392A50D40800B4E03F /* HomeCollectionViewCell.swift */,
+				1BEF1E512A52272200B4E03F /* CategoryCollectionViewCell.swift */,
+				1B757C452A525B73008663B7 /* DishFilterCollectionViewCell.swift */,
+				1B3103992A5335750019231F /* BasketCollectionViewCell.swift */,
+			);
+			path = "CollectionView Cells";
+			sourceTree = "<group>";
+		};
 		1BEF1DF72A4DF4EC00B4E03F = {
 			isa = PBXGroup;
 			children = (
@@ -137,15 +148,11 @@
 		1BEF1E1B2A4DF6F400B4E03F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1BEF1E172A4DF66A00B4E03F /* TabBarController.swift */,
+				1BD65B992A53C94500CE1AFF /* CollectionView Cells */,
 				1BEF1E382A50D37600B4E03F /* Custom Views */,
 				1BEF1E252A4F000E00B4E03F /* ViewControllers */,
 				1BEF1E242A4EFF8700B4E03F /* NavigationControllers */,
-				1BEF1E172A4DF66A00B4E03F /* TabBarController.swift */,
-				1BEF1E222A4EF44100B4E03F /* AccountCirclImage.swift */,
-				1BEF1E2A2A4F064C00B4E03F /* LocationView.swift */,
-				1BEF1E2C2A4F7B7000B4E03F /* NavigationBarView.swift */,
-				1B757C3D2A5231AE008663B7 /* DishView.swift */,
-				1B757C412A523D6B008663B7 /* FullDishView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -210,11 +217,12 @@
 		1BEF1E382A50D37600B4E03F /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				1BEF1E392A50D40800B4E03F /* HomeCollectionViewCell.swift */,
 				1BEF1E4B2A51D7B700B4E03F /* BackButtonView.swift */,
-				1BEF1E512A52272200B4E03F /* CategoryCollectionViewCell.swift */,
-				1B757C452A525B73008663B7 /* DishFilterCollectionViewCell.swift */,
-				1B3103992A5335750019231F /* BasketCollectionViewCell.swift */,
+				1BEF1E222A4EF44100B4E03F /* AccountCirclImage.swift */,
+				1BEF1E2A2A4F064C00B4E03F /* LocationView.swift */,
+				1B757C3D2A5231AE008663B7 /* DishView.swift */,
+				1B757C412A523D6B008663B7 /* FullDishView.swift */,
+				1BEF1E2C2A4F7B7000B4E03F /* NavigationBarView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";

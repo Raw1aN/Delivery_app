@@ -14,7 +14,6 @@ class TabBarController: UITabBarController {
         tabBarConfiguration()
         tabBarCustomization()
     }
-
 }
 
 extension TabBarController{
