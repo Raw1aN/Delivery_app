@@ -18,10 +18,10 @@ class BasketViewController: UIViewController, CustomCellUpdater {
         super.viewDidLoad()
         view.backgroundColor = .white
         customNavBar()
+        payButtonConstraints()
         collectionViewConstraints()
         delegates()
         getDishes()
-        payButtonConstraints()
     }
     
     
@@ -78,7 +78,7 @@ extension BasketViewController{
         
         view.addSubview(collectionView)
         collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: payButton.topAnchor, constant: -10).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
     }
